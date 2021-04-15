@@ -1,0 +1,38 @@
+@import '../Vars';
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: right;
+
+    & h3 {
+        margin: 12px 0;
+    }
+
+    &.n {
+        width: 90px;
+    }
+
+    &.title {
+        width: 220px;
+    }
+
+    &.save {
+        width: 110px;
+    }
+
+    &.type {
+        width: 110px;
+    }
+
+    &.year {
+        width: 110px;
+    }
+}
+
+tbody tr {
+    border-bottom: 2px solid $pink;
+}

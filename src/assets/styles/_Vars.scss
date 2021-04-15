@@ -1,0 +1,86 @@
+//Font-faces
+@font-face {
+    font-family: 'Axiforma';
+    src:
+        url(../fonts/axiforma-thin.woff) format('woff'),
+        url(../fonts/axiforma-thin.ttf) format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Courgette';
+    src:
+        url(../fonts/Courgette-Regular.woff) format('woff'),
+        url(../fonts/Courgette-Regular.ttf) format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src:
+        url(../fonts/Montserrat-Regular.woff) format('woff'),
+        url(../fonts/Montserrat-Regular.ttf) format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+// Fonts
+$title: 'Axiforma';
+$regular: 'Montserrat';
+$logo: 'Courgette';
+
+//Colors
+$pink: #FF006B;
+$darkblue: #13182B;
+$softpink: #F0E8E8;
+
+//Border
+$image-border: 5px;
+$input-border: 50px;
+
+//Grid
+
+.container {
+    width: calc(100% - 80px);
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+
+    &.centered {
+        justify-content: center;
+    }
+
+    &.right {
+        justify-content: flex-end;
+    }
+
+    &.left {
+        justify-content: flex-start;
+    }
+}
+
+div[class^="col-"] {
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+$columns: 8;
+
+@for $i from 1 through $columns {
+    .col-#{$i} {
+        flex-basis: 100% / $columns * $i;
+    }
+
+    .col-offset-#{$i} {
+        margin-left: 100% / $columns * $i;
+    }
+}

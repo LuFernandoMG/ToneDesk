@@ -1,0 +1,55 @@
+@import 'Vars';
+
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, $regular,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $darkblue;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1, h2, h3 {
+  font-size: 2em;
+  font-family: $title;
+  color: $softpink;
+  margin: 12px 10px;
+  font-weight: 100;
+}
+
+h1#logo.big {
+  font-family: $logo;
+  color: white;
+  font-size: 4em;
+  margin: 12px 10px;
+}
+
+h1#logo.small {
+  font-family: $logo;
+  color: white;
+  font-size: 2em;
+}
+
+p, span, div {
+  font-family: $regular;
+  color: $softpink;
+  font-size: 1em;
+}
+
+span {
+  color: $pink;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,42 @@
+@import '../Vars';
+
+.card {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.card__img img {
+    width: 100%;
+    box-shadow: 0 4px 4px #00000080;
+}
+
+.card__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .card__info--left {
+        text-align: left;
+
+        & h3 {
+            margin: 8px 0;
+            font-size: 20px;
+        }
+
+        & p {
+            margin: 4px 0;
+            font-size: 16px;
+        }
+    }
+
+    & .card__info--right button {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+
+        & img {
+            width: 24px;
+            height: auto;
+        }
+    }
+}

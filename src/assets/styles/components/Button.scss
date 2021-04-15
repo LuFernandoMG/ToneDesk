@@ -1,0 +1,58 @@
+@import '../Vars';
+
+.button {
+    width: 100%;
+    height: 30px;
+    border-radius: $input-border;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 4px #000;
+    transition: all ease .5s;
+}
+
+.button.primary {
+    background-color: $pink;
+    border: none;
+    color: $softpink;
+    
+    &:hover {
+        background-color: $softpink;
+        color: $pink;
+        outline: none;
+    }
+    
+    &:focus {
+        background-color: $softpink;
+        color: $pink;    
+        outline: none;
+    }
+    &:active {
+        background-color: $softpink;
+        color: $pink;    
+        outline: none;
+    }
+}
+
+.button.secondary {
+    background-color: transparent;
+    border: 2px solid $softpink;
+    color: $softpink;
+    
+    &:hover {
+        background-color: $softpink;
+        color: $pink;
+        outline: none;
+    }
+    
+    &:focus {
+        background-color: $softpink;
+        color: $pink;   
+        outline: none; 
+    }
+    
+    &:active {
+        background-color: $softpink;
+        color: $pink;   
+        outline: none; 
+    }
+}
