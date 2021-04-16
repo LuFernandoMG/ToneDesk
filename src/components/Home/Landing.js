@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Carousel from '../Carousel';
 import { useHistory } from 'react-router-dom';
 import Button from '../Inputs/Button';
@@ -5,29 +6,19 @@ import '../../assets/styles/containers/Landing.scss';
 
 const Landing = () => {
 
+    const [scroll, setScroll] = useState(false)
     const history = useHistory();
-
     const handleLogin = () => {
         history.push('/login')
     }
 
-    // let lastScroll = 0;
-
-    // const handleScroll = () => {
-    //     const first = document.getElementById('first')
-    //     const second = document.getElementById('second')
-    //     let st = window.pageYOffset || document.documentElement.scrollTop;
-    //     console.log('Catching scroll')
-    //     if (st > lastScroll) {
-    //         console.log('scroll down and first is: ', first);
-    //     } else {
-    //         console.log('scroll up and second is: ', second)
-    //     }
-
-    //     lastScroll = st <= 0 ? 0 : st;
-    // }
-
-    // window.addEventListener('scroll', handleScroll())
+    document.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+            setScroll(true)
+        } else {
+            setScroll(false)
+        }
+    });
 
     return (
         <div className="container">
@@ -36,7 +27,7 @@ const Landing = () => {
                     <Carousel />
                 </div>
                 <div className="col-3" id='landing'>
-                    <div id='first' className="landing__initial hidden">
+                    <div id='first' className={`landing__initial ${scroll ? 'hidden' : ''}`}>
                         <h1 id="logo" className="big">
                             ToneDesk
                         </h1>
@@ -47,13 +38,13 @@ const Landing = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <div id='second' className="landing__info">
+                    <div id='second' className={`landing__info ${scroll ? '' : 'hidden'}`}>
                         <h2 className="landing__info--title">
                             We live for music
                         </h2>
                         <small className='landing__info--small'>Enjoy, it's open-source 😉</small>
                         <p className="info--description">This project is a challenge for B4B, designed and developed by <span>Luis Fernando Méndez</span></p>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>

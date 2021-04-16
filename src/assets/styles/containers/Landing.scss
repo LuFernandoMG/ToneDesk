@@ -5,4 +5,23 @@
     display: flex;
     align-items: center;
     text-align: right;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#first, #second {
+    height: calc(100vh + 10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all ease .5s;
+
+    &.hidden {
+        display: none;
+    }
+
 }
