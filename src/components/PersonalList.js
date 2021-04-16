@@ -1,4 +1,3 @@
-import InputText from "./Inputs/InputText"
 import search from '../assets/icons/search.svg';
 import '../assets/styles/components/PersonalList.scss';
 
@@ -20,7 +19,7 @@ const PersonalList = ({ img, title }) => {
                         <button type='button' onClick={handleSearch}>
                             <img src={search} alt={`Search on ${title}`} />
                         </button>
-                        <InputText type='text' name='search' placeholder='Search...' />
+                        <input className='InputText' type='text' name='search' placeholder='Search...' />
                     </div>
                 </div>
             </div>

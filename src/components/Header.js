@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom';
+import { auth } from '../backend/firebase';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUserLogOutState, selectorUserName } from '../backend/userSlice';
 import '../assets/styles/components/Header.scss';
 import collection from '../assets/icons/folder.svg';
 import wishlist from '../assets/icons/heart.svg';
@@ -6,7 +9,16 @@ import logout from '../assets/icons/logout.svg';
 
 const Header = () => {
 
-    if (false) {
+    const dispatch = useDispatch();
+    const userName = useSelector(selectorUserName);
+
+    const handleSignOut = () => {
+        auth.signOut().then(() => {
+            dispatch(setUserLogOutState());
+        }).catch((err) => console.error(err.message));
+    }
+
+    if (!userName) {
         return (
             <header>
                 <div className="container">
@@ -38,7 +50,7 @@ const Header = () => {
                             <Link to='/wishlist'>
                                 <img src={wishlist} alt="" />
                             </Link>
-                            <Link to='/logout'>
+                            <Link to='' onClick={handleSignOut}>
                                 <img src={logout} alt="" />
                             </Link>
                         </nav>

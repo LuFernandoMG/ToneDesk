@@ -1,15 +1,21 @@
 import Header from "../Header"
 import Button from "../Inputs/Button"
-import InputText from "../Inputs/InputText"
 import Results from "../Results/Results"
+import { useSelector } from 'react-redux';
+import { selectorResults } from '../../backend/searchSlice';
+import { selectorUserName } from '../../backend/userSlice';
 
 const Search = () => {
+    
+    const userName = useSelector(selectorUserName);
+    const results = useSelector(selectorResults);
 
     const handleSearch = () => {
         console.log('I did a search')
     }
 
-    if (true) {
+
+    if (userName && results) {
         return (
             <div className="Search">
                 <Header />
@@ -23,7 +29,7 @@ const Search = () => {
                     </div>
                     <div className="row centered">
                         <div className="col-6">
-                            <InputText type='text' name='searchBox' placeholder='' />
+                            <input className='InputText' type='text' name='searchBox' placeholder='' />
                         </div>
                     </div>
                     <div className="row centered">
@@ -43,7 +49,7 @@ const Search = () => {
                     <div className="row centered">
                         <div className="col-4">
                             <h2>
-                                Welcome back <span>Luis Fernando.</span>
+                                Welcome back <span>{userName}.</span>
                                 <br />
                             What you wanna search today?
                         </h2>
@@ -51,7 +57,7 @@ const Search = () => {
                     </div>
                     <div className="row centered">
                         <div className="col-6">
-                            <InputText type='text' name='searchBox' placeholder='' />
+                            <input className='InputText' type='text' name='searchBox' placeholder='' />
                         </div>
                     </div>
                     <div className="row centered">

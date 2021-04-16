@@ -4,6 +4,7 @@ import folder from '../assets/icons/folder.svg';
 import Results from "../components/Results/Results";
 
 const Collection = () => {
+
     return (
         <div className="Collection">
             <Header />
