@@ -62,7 +62,7 @@ const Login = (props) => {
                             <h2 className="Login--title">
                                 Woa woa, first tell
                             <br />
-                            us who are you
+                            us who you are
                         </h2>
                             <input className='InputText' type='email' value={user.email} onChange={(e) => onChangeHandler(e)} name='email' placeholder='email' />
                             <input className='InputText' type='password' value={user.password} onChange={(e) => onChangeHandler(e)} name='password' placeholder='password' />

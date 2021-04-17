@@ -69,7 +69,7 @@ const Signup = () => {
                             <input className='InputText' onChange={(e) => onChangeHandler(e)} type='password' value={newUser.password} name='password' placeholder='password' />
                             <div className="row">
                                 <div className="col-4 button-auth">
-                                    <Button type='secondary' message="Hey, I've account" handler={handleSignin} />
+                                    <Button type='secondary' message="Hey, I've an account" handler={handleSignin} />
                                 </div>
                                 <div className="col-4 button-auth">
                                     <Button type='primary' message='Sign up!' handler={handleSignup} />

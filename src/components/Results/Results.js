@@ -5,7 +5,7 @@ import ResultsToggle from './ResultsToggle';
 import GridContainer from './GridContiner';
 
 const Results = ({ results, query, pagination, selection }) => {
-    
+
     const [type, setType] = useState('list')
 
     const handleType = (e) => {
@@ -35,7 +35,7 @@ const Results = ({ results, query, pagination, selection }) => {
                     <div className="row centered">
                         <div className="col-6">
                             <h2>
-                                Vaya... Parece que no has <span>guardado nada</span> aquí ¿Qué tal si buscas algo de música?
+                                Wow... Looks like you haven't <span>saved anything</span> here. How about looking for some music?
                             </h2>
                         </div>
                     </div>
@@ -49,7 +49,7 @@ const Results = ({ results, query, pagination, selection }) => {
                     <div className="row centered">
                         <div className="col-6">
                             <h2>
-                                Vaya... Parece que no hay <span>resultados</span> por esa busqueda ¿Y si pruebas otra cosa?
+                                Wow... There seem to be <span>no results</span> for that search. What if you try something else?
                             </h2>
                         </div>
                     </div>

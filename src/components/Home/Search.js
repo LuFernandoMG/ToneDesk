@@ -70,7 +70,7 @@ const Search = () => {
                                 <h2>
                                     Welcome back <span>{userName}.</span>
                                     <br />
-                                What you wanna search today?
+                                What do you wanna search today?
                             </h2>
                             </div>
                         </div>
