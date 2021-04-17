@@ -42,14 +42,10 @@ const Login = (props) => {
     }
 
     const handleGoogle = () => {
-        dispatch(setActiveUser(() => {
-            signUpWithGoogle()
-                .then((res) => {
-                    return res
-                })
-                .catch((err) => console.error(err))
-        }
-        ))
+        signUpWithGoogle()
+            .then((res) => {
+                dispatch(setActiveUser(res))
+            })
     }
 
     if (userName) {
