@@ -22,7 +22,7 @@ const CardElement = ({ data }) => {
         <div className="col-2" key={data.id}>
             <div className="card" onClick={handleOpen}>
                 <div className="card__img">
-                    <img src={data.cover_image} alt={data.title} />
+                    <img src={data.thumb} alt={data.title} />
                 </div>
                 <div className="card__info">
                     <div className="card__info--left">

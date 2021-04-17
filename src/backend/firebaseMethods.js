@@ -1,4 +1,4 @@
-import { auth, db, provider } from './firebase';
+import { auth, db, provider, modifier } from './firebase';
 
 export const signUpWithMail = (email, password, data) => {
     return auth.createUserWithEmailAndPassword(email, password)
@@ -41,6 +41,13 @@ export const logOut = () => {
     auth.signOut();
 }
 
+export const updateUser = (id) => {
+    return db.collection('users').doc(id).get()
+        .then((doc) => {
+            return doc.data();
+        })
+}
+
 const getUserProfile = (res) => {
     return db.collection('users').doc(res.user.uid).get()
         .then((doc) => {
@@ -61,4 +68,28 @@ const getUserProfile = (res) => {
         .catch((error) => {
             console.log("Error getting document:", error);
         });
+}
+
+export const addToCollection = (id, data) => {
+    return db.collection('users').doc(id).update({
+        collection: modifier.FieldValue.arrayUnion(data)
+    });
+}
+
+export const addToWishlist = (id, data) => {
+    return db.collection('users').doc(id).update({
+        wishlist: modifier.FieldValue.arrayUnion(data)
+    });
+}
+
+export const removeFromCollection = (id, data) => {
+    return db.collection('users').doc(id).update({
+        collection: modifier.FieldValue.arrayRemove(data)
+    });
+}
+
+export const removeFromWishlist = (id, data) => {
+    return db.collection('users').doc(id).update({
+        wishlist: modifier.FieldValue.arrayRemove(data)
+    });
 }

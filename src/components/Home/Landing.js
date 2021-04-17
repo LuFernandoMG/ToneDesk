@@ -21,33 +21,35 @@ const Landing = () => {
     });
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-5">
-                    <Carousel />
-                </div>
-                <div className="col-3" id='landing'>
-                    <div id='first' className={`landing__initial ${scroll ? 'hidden' : ''}`}>
-                        <h1 id="logo" className="big">
-                            ToneDesk
+        <>
+            <div className="container">
+                <div className="row">
+                    <div className="col-5">
+                        <Carousel />
+                    </div>
+                    <div className="col-3" id='landing'>
+                        <div id='first' className={`landing__initial ${scroll ? 'hidden' : ''}`}>
+                            <h1 id="logo" className="big">
+                                ToneDesk
                         </h1>
-                        <h2 className='landing__initial--title'>Take control over the music you love</h2>
-                        <div className="row right">
-                            <div className="col-4">
-                                <Button type='primary' message="Let's rock baby" handler={handleLogin} />
+                            <h2 className='landing__initial--title'>Take control over the music you love</h2>
+                            <div className="row right">
+                                <div className="col-4">
+                                    <Button type='primary' message="Let's rock baby" handler={handleLogin} />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div id='second' className={`landing__info ${scroll ? '' : 'hidden'}`}>
-                        <h2 className="landing__info--title">
-                            We live for music
+                        <div id='second' className={`landing__info ${scroll ? '' : 'hidden'}`}>
+                            <h2 className="landing__info--title">
+                                We live for music
                         </h2>
-                        <small className='landing__info--small'>Enjoy, it's open-source 😉</small>
-                        <p className="info--description">This project is a challenge for B4B, designed and developed by <span>Luis Fernando Méndez</span></p>
+                            <small className='landing__info--small'>Enjoy, it's open-source 😉</small>
+                            <p className="info--description">This project is a challenge for B4B, designed and developed by <span>Luis Fernando Méndez</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

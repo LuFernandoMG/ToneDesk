@@ -7,7 +7,7 @@ import { getResults } from '../../backend/discogsMethods';
 import { selectorUserName } from '../../backend/userSlice';
 
 const Search = () => {
-    
+
     const [results, setResults] = useState(null);
     const userName = useSelector(selectorUserName);
 
@@ -20,7 +20,7 @@ const Search = () => {
 
     const handleSearch = () => {
         getResults(query, 1)
-        .then((res) => {
+            .then((res) => {
                 console.log(res)
                 setResults(res)
             })
@@ -33,9 +33,9 @@ const Search = () => {
                 <div className="container">
                     <div className="row centered">
                         <div className="col-4">
-                            <h2>
+                            <h3>
                                 We are looking for... <span>{query}</span>
-                            </h2>
+                            </h3>
                         </div>
                     </div>
                     <div className="row centered">
@@ -48,7 +48,7 @@ const Search = () => {
                             <Button type='primary' message='Search' handler={handleSearch} />
                         </div>
                     </div>
-                    <Results results={results} query={query} setResults={setResults} />
+                    <Results results={results.results} pagination={results.pagination} query={query} setResults={setResults} />
                 </div>
             </div>
         )
@@ -58,12 +58,12 @@ const Search = () => {
                 <Header />
                 <div className="container">
                     <div className="row centered">
-                        <div className="col-4">
+                        <div className="col-4 text-centered">
                             <h2>
                                 Welcome back <span>{userName}.</span>
                                 <br />
-                            What you wanna search today?
-                        </h2>
+                                What you wanna search today?
+                            </h2>
                         </div>
                     </div>
                     <div className="row centered">

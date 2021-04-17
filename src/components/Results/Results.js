@@ -4,7 +4,7 @@ import ListContainer from './ListContainer';
 import ResultsToggle from './ResultsToggle';
 import GridContainer from './GridContiner';
 
-const Results = ({ results, query, setResults }) => {
+const Results = ({ results, query, setResults, pagination, selection }) => {
 
     const [type, setType] = useState('list')
 
@@ -12,20 +12,34 @@ const Results = ({ results, query, setResults }) => {
         setType(e)
     }
 
-    if (type === 'list' && results.results.length > 0) {
+    if (type === 'list' && results.length > 0) {
         return (
             <div className="Results">
                 <ResultsToggle type={type} handler={handleType} />
                 <ListContainer results={results} />
-                <Pagination data={results.pagination} query={query} handler={setResults} />
+                {pagination ? <Pagination data={pagination} query={query} handler={setResults} /> : null}
             </div>
         )
-    } else if (type === 'grid' && results.results.length > 0) {
+    } else if (type === 'grid' && results.length > 0) {
         return (
             <div className="Results">
                 <ResultsToggle type={type} handler={handleType} />
                 <GridContainer results={results} />
-                <Pagination data={results.pagination} query={query} handler={setResults} />
+                {pagination ? <Pagination data={pagination} query={query} handler={setResults} /> : null}
+            </div>
+        )
+    } else if (selection) {
+        return (
+            <div className="Results">
+                <div className="container">
+                    <div className="row centered">
+                        <div className="col-6">
+                            <h2>
+                                Vaya... Parece que no has <span>guardado nada</span> aquí ¿Qué tal si buscas algo de música?
+                            </h2>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     } else {

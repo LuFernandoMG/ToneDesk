@@ -23,8 +23,8 @@ const ListContainer = ({ results }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        { results.results.map((result) => {
-                            return <ListElement key={result.key} data={result} />
+                        { results.map((result) => {
+                            return <ListElement key={result.id} data={result} />
                         })}
                     </tbody>
 

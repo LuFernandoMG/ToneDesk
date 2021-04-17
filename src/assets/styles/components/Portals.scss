@@ -1,35 +1,221 @@
 @import '../Vars';
 
 .Modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Modal__container {
+  position: relative;
+  top: 50%;
+  box-shadow: 0 4px 4px #00000080;
+  background: linear-gradient(154.4deg, rgba(108, 108, 108, 0.8) 2.69%, rgba(175, 175, 175, 0.2) 100%);
+  border: 1px solid #C8C8C8;
+  box-sizing: border-box;
+  backdrop-filter: blur(2px);
+  max-width: 600px;
+  transform: translateY(-50%);
+  filter: drop-shadow(0px 4px 8px rgba(245, 32, 122, 0.25));
+  border-radius: 5px;
+  overflow: auto;
+  max-height: 90vh;
+}
+
+.Modal__close--button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  &:active {
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+
+}
+
+.Artist, .Label {
+  display: flex;
+  flex-direction: column;
+  padding: 2.75em 1.5em;
+
+  & .Artist__title, .Label__title {
+    text-align: center;
+
+    & h2 {
+      margin: 0 auto 12px;
+      height: 1em;
+    }
+
+    & small {
+      margin: 4px auto 8px;
+      font-size: .8em;
+      opacity: .7;
+    }
+  }
+
+  & .Artist__img, .Label__img {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+
+    & img {
+      max-width: 200px;
+      height: auto;
+    }
+  }
+
+  & .Artist__buttons, .Label__buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 12px 8px;
+
+    & button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      
+      &:active {
+        outline: none;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.Master, .Release {
+  display: flex;
+  
+  & .Master__left, .Release__left {
+    width: 40%;
+    padding: 2em 1em;
+    
+    & .Master__left--title, .Release__left--title {
+      text-align: center;
+      
+      & h2 {
+        font-size: 1.4em;
+      }
+    }
+    
+    & .Master__left--img, .Release__left--img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      & img {
+        max-width: 130px;
+      }
+    }
+
+    & .Master__left--genre, .Release__left--genre {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      & p {
+        margin: 12px auto 4px;
+      }
+    }
+
+    & .Master__left--year, .Release__left--year {
+      text-align: center;
+      
+      & small {
+        opacity: .7;
+        font-size: .8em;
+      }
+    }
+
+    & .Master__left--buttons, .Release__left--buttons {
+      display: flex;
+      justify-content: space-around;
+      
+      & button {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+
+        &:active {
+          outline: none;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
   }
   
-  .Modal__container {
-    position: relative;
-    top: 50%;
-    border-radius: 5px;
-    box-shadow: 0 4px 4px #00000080;
-    background-color: #ffffff;
-    padding: 1rem;
-    max-width: 400px;
-    transform: translateY(-50%);
+  .Master__right, .Release__right {
+    background-color: $darkblue;
+    border-radius: 0 5px 5px 0;
+    width: 60%;
+    flex-direction: column;
+    padding: 2em 1em;
+    
+    & .Master__right--general, .Release__right--general {
+      display: flex;
+      justify-content: space-between;
+
+      & h3 {
+        font-size: 1.3em;
+
+        & a {
+          color: $softpink;
+          text-decoration: none;
+        }
+      }
+    }
+
+    & .Master__right--format, .Release__right--format {
+      margin: 24px 0;
+
+      & h3 {
+        font-size: 1.3em;
+        text-align: left;
+        border-bottom: 2px solid $pink;
+      }
+
+      & p {
+        font-size: .9em;
+        text-align: right;
+        border-bottom: 1px solid $pink;
+        margin: 10px;
+      }
+    }
+   
+    & .Master__right--label, .Release__right--label {
+      margin: 24px 0;
+
+      & h3 {
+        font-size: 1.3em;
+        text-align: left;
+        border-bottom: 2px solid #6c6c6c;
+      }
+
+      & p {
+        font-size: .9em;
+        text-align: right;
+        border-bottom: 1px solid #6c6c6c;
+        margin: 10px;
+      }
+    }
   }
-  
-  .Modal__close--button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 0;
-    background-color: transparent;
-    border: none;
-    padding: 0.5rem 1rem;
-  }
+}
