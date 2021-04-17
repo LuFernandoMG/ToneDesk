@@ -1,0 +1,31 @@
+@import '../Vars';
+
+.image-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    width: 65%;
+}
+
+@media screen and (max-width: 769px) {
+
+    .button-auth {
+        margin-bottom: 24px;
+    }
+
+    .login, .signup {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    .image-right {
+        position: absolute;
+        width: 100%;
+        top: 290px;
+        z-index: -1;
+    }
+}

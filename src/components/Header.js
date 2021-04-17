@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { auth } from '../backend/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserLogOutState, selectorUserName } from '../backend/userSlice';
+import { setStatusLogout } from '../backend/statusSlice';
 import '../assets/styles/components/Header.scss';
 import collection from '../assets/icons/folder.svg';
 import wishlist from '../assets/icons/heart.svg';
@@ -15,6 +16,7 @@ const Header = () => {
     const handleSignOut = () => {
         auth.signOut().then(() => {
             dispatch(setUserLogOutState());
+            dispatch(setStatusLogout());
         }).catch((err) => console.error(err.message));
     }
 

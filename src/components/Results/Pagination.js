@@ -1,20 +1,20 @@
 import ReactPaginate from 'react-paginate';
-import { getResults } from '../../backend/discogsMethods';
+import { useDispatch, useSelector } from 'react-redux';
+import { getResultsInfo } from '../../backend/statusSlice';
 import '../../assets/styles/components/Pagination.scss';
 
-const Pagination = ({ data, query, handler }) => {
+const Pagination = ({ query }) => {
 
-    const totalPages = data.pages;
+    const status = useSelector(state => state.status)
 
+    const dispatch = useDispatch();
+    const totalPages = status.results.pagination.pages;
     const next = <span>{'>'}</span>
     const prev = <span>{'<'}</span>
 
-    const handleChange = (data) => {
-        const selectedPage = data.selected + 1
-        getResults(query, selectedPage)
-            .then((res) => {
-                handler(res)
-            })
+    const handleChange = (e) => {
+        const selectedPage = e.selected + 1
+        dispatch(getResultsInfo([query, selectedPage]))
     }
 
     return (
@@ -30,6 +30,7 @@ const Pagination = ({ data, query, handler }) => {
                             nextLabel={next}
                             previousLabel={prev}
                             activeClassName='active'
+                            forcePage={status.results.pagination.page - 1}
                         />
                     </div>
                 </div>

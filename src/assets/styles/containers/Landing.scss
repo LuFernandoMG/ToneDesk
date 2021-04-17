@@ -1,10 +1,18 @@
 @import '../Vars';
 
+.image-landing {
+    left: 0;
+    position: absolute;
+    height: 100%;
+    z-index: -2;
+}
+
 #landing {
     height: 100vh;
     display: flex;
     align-items: center;
     text-align: right;
+    overflow: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -23,5 +31,23 @@
     &.hidden {
         display: none;
     }
+}
 
+@media screen and (max-width: 769px) {
+
+    #landing {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .image-landing {
+        top: 30px;
+        height: auto;
+        width: 100%;
+    }
 }

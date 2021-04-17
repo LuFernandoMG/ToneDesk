@@ -1,5 +1,4 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import '../assets/styles/containers/App.scss';
 
 // Rutas
 import Home from '../containers/Home';

@@ -1,0 +1,12 @@
+.Slider {
+    transform: rotate(-90deg) translateY(-50%);
+    z-index: -1;
+    position: absolute;
+    width: 120vh;
+    overflow: hidden;
+}
+
+.slider__item {
+    transform: rotate(90deg);
+    padding: 12px;
+}

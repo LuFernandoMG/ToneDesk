@@ -4,8 +4,8 @@ import ListContainer from './ListContainer';
 import ResultsToggle from './ResultsToggle';
 import GridContainer from './GridContiner';
 
-const Results = ({ results, query, setResults, pagination, selection }) => {
-
+const Results = ({ results, query, pagination, selection }) => {
+    
     const [type, setType] = useState('list')
 
     const handleType = (e) => {
@@ -17,7 +17,7 @@ const Results = ({ results, query, setResults, pagination, selection }) => {
             <div className="Results">
                 <ResultsToggle type={type} handler={handleType} />
                 <ListContainer results={results} />
-                {pagination ? <Pagination data={pagination} query={query} handler={setResults} /> : null}
+                {pagination ? <Pagination data={pagination} query={query} /> : null}
             </div>
         )
     } else if (type === 'grid' && results.length > 0) {
@@ -25,7 +25,7 @@ const Results = ({ results, query, setResults, pagination, selection }) => {
             <div className="Results">
                 <ResultsToggle type={type} handler={handleType} />
                 <GridContainer results={results} />
-                {pagination ? <Pagination data={pagination} query={query} handler={setResults} /> : null}
+                {pagination ? <Pagination data={pagination} query={query} /> : null}
             </div>
         )
     } else if (selection) {

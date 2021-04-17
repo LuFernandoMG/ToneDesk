@@ -3,11 +3,13 @@ import { Redirect, useHistory } from 'react-router';
 import { signInMail, signUpWithGoogle } from '../backend/firebaseMethods';
 import { selectorUserName, setActiveUser } from '../backend/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import Carousel from '../components/Carousel';
+import right from '../assets/img/image__right.png';
 import Header from '../components/Header';
 import Button from '../components/Inputs/Button';
 import RoundedButton from '../components/Inputs/RoundedButton';
 import google from '../assets/icons/google.svg';
+import Footer from '../components/Footer';
+import '../assets/styles/containers/Auth.scss';
 
 const Login = (props) => {
 
@@ -25,7 +27,7 @@ const Login = (props) => {
         setUser({
             ...user,
             [name]: value,
-          });
+        });
     }
 
     const handleSignin = () => {
@@ -41,11 +43,14 @@ const Login = (props) => {
     }
 
     const handleGoogle = () => {
-        signUpWithGoogle()
-            .then((res) => {
-                dispatch(setActiveUser(res))
-            })
-            .catch((err) => console.error(err))
+        dispatch(setActiveUser(() => {
+            signUpWithGoogle()
+                .then((res) => {
+                    return res
+                })
+                .catch((err) => console.error(err))
+        }
+        ))
     }
 
     if (userName) {
@@ -53,37 +58,40 @@ const Login = (props) => {
     }
 
     return (
-        <div className="Login">
+        <>
             <Header />
-            <div className="container">
-                <div className="row">
-                    <div className="col-4">
-                        <h2 className="Login--title">
-                            Woa woa, first tell
-                            <br/>
+            <div className="Login">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-4 login">
+                            <h2 className="Login--title">
+                                Woa woa, first tell
+                            <br />
                             us who are you
                         </h2>
-                        <input className='InputText' type='email' value={user.email} onChange={(e) => onChangeHandler(e)} name='email' placeholder='email' />
-                        <input className='InputText' type='password' value={user.password} onChange={(e) => onChangeHandler(e)} name='password' placeholder='password' />
-                        <div className="row">
-                            <div className="col-4">
-                                <Button type='secondary' message='Sign up' handler={handleSignup} />
+                            <input className='InputText' type='email' value={user.email} onChange={(e) => onChangeHandler(e)} name='email' placeholder='email' />
+                            <input className='InputText' type='password' value={user.password} onChange={(e) => onChangeHandler(e)} name='password' placeholder='password' />
+                            <div className="row">
+                                <div className="col-4 button-auth">
+                                    <Button type='secondary' message='Sign up' handler={handleSignup} />
+                                </div>
+                                <div className="col-4 button-auth">
+                                    <Button type='primary' message='Sign in!' handler={handleSignin} />
+                                </div>
                             </div>
-                            <div className="col-4">
-                                <Button type='primary' message='Sign in!' handler={handleSignin} />
-                            </div>
-                        </div>
-                        <h2 className="Login--subtitle">
-                            Or you can use...
+                            <h2 className="Login--subtitle">
+                                Or you can use...
                         </h2>
-                        <RoundedButton type='google' handler={handleGoogle} img={google} />
-                    </div>
-                    <div className="col-4">
-                        <Carousel />
+                            <RoundedButton type='google' handler={handleGoogle} img={google} />
+                        </div>
+                        <div className="col-4">
+                            <img src={right} alt="" className='image-right' />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <Footer />
+        </>
     )
 }
 

@@ -85,6 +85,51 @@ $columns: 8;
     }
 }
 
+@media screen and (max-width: 769px) {
+    .container {
+        width: calc(100% - 20px);
+        margin: 0 auto;
+    }
+    
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    
+        &.centered {
+            justify-content: center;
+        }
+    
+        &.right {
+            justify-content: flex-end;
+        }
+    
+        &.left {
+            justify-content: flex-start;
+        }
+    }
+    
+    div[class^="col-"] {
+        box-sizing: border-box;
+        padding: 0 5px;
+    }
+    
+    $columns: 4;
+    
+    @for $i from 1 through $columns {
+        .col-#{$i} {
+            flex-basis: 100% / $columns * $i;
+        }
+    
+        .col-offset-#{$i} {
+            margin-left: 100% / $columns * $i;
+        }
+    }
+
+    .Search .container .row.centered .col-4 h3 {
+        text-align: center;
+    }
+}
+
 // Others 
 
 .text-centered {

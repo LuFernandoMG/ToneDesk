@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import Carousel from '../Carousel';
+import { useState } from 'react';
+import left from '../../assets/img/image__left.png';
 import { useHistory } from 'react-router-dom';
 import Button from '../Inputs/Button';
 import '../../assets/styles/containers/Landing.scss';
@@ -25,7 +25,7 @@ const Landing = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-5">
-                        <Carousel />
+                        <img src={left} alt="Welcome to ToneDesk" className='image-landing' />
                     </div>
                     <div className="col-3" id='landing'>
                         <div id='first' className={`landing__initial ${scroll ? 'hidden' : ''}`}>

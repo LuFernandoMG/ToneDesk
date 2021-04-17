@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCollection, addToWishlist, updateUser, removeFromCollection, removeFromWishlist } from '../backend/firebaseMethods';
 import { setActiveUser } from '../backend/userSlice';
+import { setAddToCollection, setAddToWishlist, setRemoveFromCollection, setRemoveFromWishlist, getUpdatedUser } from '../backend/statusSlice';
+import Loader from '../components/Loader';
+import Fatal from '../components/Fatal';
 import folderE from '../assets/icons/folderEmpty.svg'
 import folder from '../assets/icons/folder.svg'
 import heartE from '../assets/icons/heartEmpty.svg'
@@ -9,44 +11,47 @@ import link from '../assets/icons/link.svg'
 
 const Label = ({ data }) => {
 
+    const status = useSelector(state => state.status)
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
 
     const handleCollection = () => {
+        const arr = [user.uid, data]
         if (hasInCollection.length > 0) {
-            removeFromCollection(user.uid, data)
+            dispatch(setRemoveFromCollection(arr))
                 .then(() => {
-                    updateUser(user.uid)
+                    dispatch(getUpdatedUser(arr[0]))
                         .then((res) => {
-                            dispatch(setActiveUser(res))
+                            dispatch(setActiveUser(res.payload))
                         })
                 })
         } else {
-            addToCollection(user.uid, data)
+            dispatch(setAddToCollection(arr))
                 .then(() => {
-                    updateUser(user.uid)
+                    dispatch(getUpdatedUser(arr[0]))
                         .then((res) => {
-                            dispatch(setActiveUser(res))
+                            dispatch(setActiveUser(res.payload))
                         })
                 })
         }
     }
 
     const handleWishlist = () => {
+        const arr = [user.uid, data]
         if (hasInWishlist.length > 0) {
-            removeFromWishlist(user.uid, data)
+            dispatch(setRemoveFromWishlist(arr))
                 .then(() => {
-                    updateUser(user.uid)
+                    dispatch(getUpdatedUser(arr[0]))
                         .then((res) => {
-                            dispatch(setActiveUser(res))
+                            dispatch(setActiveUser(res.payload))
                         })
                 })
         } else {
-            addToWishlist(user.uid, data)
+            dispatch(setAddToWishlist(arr))
                 .then(() => {
-                    updateUser(user.uid)
+                    dispatch(getUpdatedUser(arr[0]))
                         .then((res) => {
-                            dispatch(setActiveUser(res))
+                            dispatch(setActiveUser(res.payload))
                         })
                 })
         }
@@ -59,6 +64,14 @@ const Label = ({ data }) => {
     const hasInWishlist = user.wishlist.filter((obj) => {
         return obj.id === data.id
     })
+
+    if (status.loading) {
+        return <Loader />
+    }
+
+    if (status.error) {
+        return <Fatal message={status.error} />
+    }
 
     return (
         <div className='Label'>

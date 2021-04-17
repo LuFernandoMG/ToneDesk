@@ -1,11 +1,6 @@
 import '../assets/styles/components/PersonalList.scss';
 
 const PersonalList = ({ img, title }) => {
-
-    const handleSearch = () => {
-        console.log('Hice click')
-    }
-
     return (
         <div className="row centered">
             <div className="col-6 PersonalList">

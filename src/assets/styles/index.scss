@@ -87,6 +87,10 @@ a {
   }
 }
 
+#root>div {
+  min-height: 400px;
+}
+
 .InputText::placeholder {
   font-size: 1em;
   color: $darkblue;

@@ -14,3 +14,14 @@ nav {
         margin-left: 2em;
     }
 }
+
+@media screen and (max-width: 769px) {
+    header .container .row .col-4 {
+        max-width: 50%;
+    }
+    nav {
+        & a {
+            margin-left: 1em;
+        }
+    }
+}

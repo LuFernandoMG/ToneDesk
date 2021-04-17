@@ -70,26 +70,26 @@ const getUserProfile = (res) => {
         });
 }
 
-export const addToCollection = (id, data) => {
-    return db.collection('users').doc(id).update({
-        collection: modifier.FieldValue.arrayUnion(data)
+export const addToCollection = (arr) => {
+    return db.collection('users').doc(arr[0]).update({
+        collection: modifier.FieldValue.arrayUnion(arr[1])
     });
 }
 
-export const addToWishlist = (id, data) => {
-    return db.collection('users').doc(id).update({
-        wishlist: modifier.FieldValue.arrayUnion(data)
+export const addToWishlist = (arr) => {
+    return db.collection('users').doc(arr[0]).update({
+        wishlist: modifier.FieldValue.arrayUnion(arr[1])
     });
 }
 
-export const removeFromCollection = (id, data) => {
-    return db.collection('users').doc(id).update({
-        collection: modifier.FieldValue.arrayRemove(data)
+export const removeFromCollection = (arr) => {
+    return db.collection('users').doc(arr[0]).update({
+        collection: modifier.FieldValue.arrayRemove(arr[1])
     });
 }
 
-export const removeFromWishlist = (id, data) => {
-    return db.collection('users').doc(id).update({
-        wishlist: modifier.FieldValue.arrayRemove(data)
+export const removeFromWishlist = (arr) => {
+    return db.collection('users').doc(arr[0]).update({
+        wishlist: modifier.FieldValue.arrayRemove(arr[1])
     });
 }
