@@ -13,22 +13,27 @@ th, td {
     }
 
     &.n {
+        cursor: pointer;
         width: 90px;
     }
 
     &.title {
+        cursor: pointer;
         width: 220px;
     }
 
     &.save {
+        cursor: pointer;
         width: 110px;
     }
 
     &.type {
+        cursor: pointer;
         width: 110px;
     }
 
     &.year {
+        cursor: pointer;
         width: 110px;
     }
 }

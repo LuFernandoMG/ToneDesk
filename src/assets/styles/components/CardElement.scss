@@ -8,12 +8,14 @@
 .card__img img {
     width: 100%;
     box-shadow: 0 4px 4px #00000080;
+    cursor: pointer;
 }
 
 .card__info {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 
     & .card__info--left {
         text-align: left;

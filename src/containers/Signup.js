@@ -21,7 +21,6 @@ const Signup = () => {
         email: '',
         password: '',
     })
-    const [error, setError] = useState('');
 
     const onChangeHandler = (e) => {
         const { name, value } = e.target;

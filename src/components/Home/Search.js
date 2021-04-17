@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getResultsInfo } from '../../backend/statusSlice';
 import { selectorUserName } from '../../backend/userSlice';
-import Header from "../Header"
-import Footer from "../Footer"
 import Button from "../Inputs/Button"
 import Results from "../Results/Results"
 import Loader from '../Loader'
