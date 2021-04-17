@@ -1,6 +1,7 @@
 import '../../assets/styles/components/ListContainer.scss';
+import ListElement from './ListElement';
 
-const ListContainer = ({ children }) => {
+const ListContainer = ({ results }) => {
     return (
         <div className="row centered">
             <div className="col-6">
@@ -8,13 +9,10 @@ const ListContainer = ({ children }) => {
                     <thead>
                         <tr>
                             <th className='n'>
-                                <h3>Nº</h3>
+                                <h3>Country</h3>
                             </th>
                             <th className='title'>
                                 <h3>Title</h3>
-                            </th>
-                            <th className='save'>
-                                <h3>Save</h3>
                             </th>
                             <th className='type'>
                                 <h3>Type</h3>
@@ -24,8 +22,11 @@ const ListContainer = ({ children }) => {
                             </th>
                         </tr>
                     </thead>
-
-                    {children}
+                    <tbody>
+                        { results.results.map((result) => {
+                            return <ListElement key={result.key} data={result} />
+                        })}
+                    </tbody>
 
                 </table>
             </div>

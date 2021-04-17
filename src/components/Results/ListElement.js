@@ -1,77 +1,50 @@
+import { useState } from 'react';
+import Artist from '../../portals/Artist';
+import Label from '../../portals/Label';
+import Master from '../../portals/Master';
+import Modal from '../../portals/Modal';
+import Release from '../../portals/Release';
 
+const ListElement = ({ data }) => {
 
-const ListElement = () => {
+    const [isOpen, setIsOpen] = useState(false)
+
+    const handleOpen = () => {
+        setIsOpen(true);
+    }
+
+    const handleClose = () => {
+        setIsOpen(false);
+    }
+
     return (
-        <tbody>
-            <tr>
+        <>
+            <tr onClick={handleOpen}>
                 <td className='n'>
-                    <p>Nº</p>
+                    <p>{data.country}</p>
                 </td>
                 <td className='title'>
-                    <p>Title</p>
-                </td>
-                <td className='save'>
-                    <p>Save</p>
+                    <p>{data.title}</p>
                 </td>
                 <td className='type'>
-                    <p>Type</p>
+                    <p>{data.type}</p>
                 </td>
                 <td className='year'>
-                    <p>Year</p>
+                    <p>{data.year}</p>
                 </td>
             </tr>
-            <tr>
-                <td className='n'>
-                    <p>Nº</p>
-                </td>
-                <td className='title'>
-                    <p>Title</p>
-                </td>
-                <td className='save'>
-                    <p>Save</p>
-                </td>
-                <td className='type'>
-                    <p>Type</p>
-                </td>
-                <td className='year'>
-                    <p>Year</p>
-                </td>
-            </tr>
-            <tr>
-                <td className='n'>
-                    <p>Nº</p>
-                </td>
-                <td className='title'>
-                    <p>Title</p>
-                </td>
-                <td className='save'>
-                    <p>Save</p>
-                </td>
-                <td className='type'>
-                    <p>Type</p>
-                </td>
-                <td className='year'>
-                    <p>Year</p>
-                </td>
-            </tr>
-            <tr>
-                <td className='n'>
-                    <p>Nº</p>
-                </td>
-                <td className='title'>
-                    <p>Title</p>
-                </td>
-                <td className='save'>
-                    <p>Save</p>
-                </td>
-                <td className='type'>
-                    <p>Type</p>
-                </td>
-                <td className='year'>
-                    <p>Year</p>
-                </td>
-            </tr>
-        </tbody>
+            <Modal isOpen={isOpen} onClose={handleClose}>
+                {
+                    data.type === 'label' ?
+                        <Label data={data} /> :
+                        data.type === 'master' ?
+                            <Master data={data} /> :
+                            data.type === 'artist' ?
+                                <Artist data={data} /> :
+                                <Release data={data} />
+                }
+            </Modal>
+        </>
     )
 }
 

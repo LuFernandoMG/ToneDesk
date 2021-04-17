@@ -1,29 +1,31 @@
-import CardElement from './CardElement';
+import { useState } from 'react';
+import Pagination from './Pagination';
 import ListContainer from './ListContainer';
-import ListElement from './ListElement';
 import ResultsToggle from './ResultsToggle';
-import { useSelector } from 'react-redux';
-import { selectorResults, selectorType } from '../../backend/searchSlice';
+import GridContainer from './GridContiner';
 
-const Results = () => {
-    
-    const results = useSelector(selectorResults);
-    const type = useSelector(selectorType);
+const Results = ({ results, query, setResults }) => {
 
-    if (type === 'list' && results) {
+    const [type, setType] = useState('list')
+
+    const handleType = (e) => {
+        setType(e)
+    }
+
+    if (type === 'list' && results.results.length > 0) {
         return (
             <div className="Results">
-                <ResultsToggle />
-                <ListContainer>
-                    <ListElement results={results} />
-                </ListContainer>
+                <ResultsToggle type={type} handler={handleType} />
+                <ListContainer results={results} />
+                <Pagination data={results.pagination} query={query} handler={setResults} />
             </div>
         )
-    } else if (type === 'grid' && results) {
+    } else if (type === 'grid' && results.results.length > 0) {
         return (
             <div className="Results">
-                <ResultsToggle />
-                <CardElement results={results} />
+                <ResultsToggle type={type} handler={handleType} />
+                <GridContainer results={results} />
+                <Pagination data={results.pagination} query={query} handler={setResults} />
             </div>
         )
     } else {
