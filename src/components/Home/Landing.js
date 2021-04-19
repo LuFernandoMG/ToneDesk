@@ -25,6 +25,7 @@ const Landing = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-5">
+                        <div className='back'></div>
                         <img src={left} alt="Welcome to ToneDesk" className='image-landing' />
                     </div>
                     <div className="col-3" id='landing'>

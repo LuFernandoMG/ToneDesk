@@ -81,6 +81,7 @@ const Signup = () => {
                             <RoundedButton type='google' handler={handleGoogle} img={google} />
                         </div>
                         <div className="col-4">
+                            <div className='back'></div>
                             <img src={right} alt="" className='image-right' />
                         </div>
                     </div>
