@@ -1,25 +1,30 @@
 # Welcome to ToneDesk
 
-Want to check the project? [Click here](https://awesome-nightingale-cb4222.netlify.app/).
+![ToneDesk](https://user-images.githubusercontent.com/37456799/189755627-74068b5b-b767-40fb-ab7a-eb2f071ecc94.png)
 
 ## About this
 
-ToneDesk is a project that sought to meet the code challenge posed by Bridge For Billions, it required a music search engine through the Discogs API, however, it is rethought as an application integrated with Firebase and Firestore to keep a personal record of your music collection and also save all those records that you have in mind to acquire soon.
+One of my biggest hobbies is music. In this project, you have a fully responsive web application on any device that allows you to create an account and archive your collections and favorites of all those items you like.
 
-### What can you do?
+You can search for songs, artists, albums, EPs, and much more, plus you have information at hand about each of them.
+One of my biggest hobbies is music, in this project you have a fully responsive web application for use on any device that allows you to create an account and archive in your collections and favorites all those items that you like.
 
-Start now by creating your user and entering the platform, where you can search for Labels, Artists, Masters or Releases that you have in your own collection or that you are looking to acquire.
+You can search for songs, artists, albums, EPs and much more, plus you have information at hand about each of them.
 
-Discover new information about what you were looking for and add it to your personal collection to keep track of it, or include it in your wish list to know what will be your next acquisition.
+## How does it work?
 
-Check in the navigation menu your private collection and your wish list.
+We are connecting the application to a database managed by Firebase to save your user and all the information you want to add. Likewise, the Frontend is completely developed in React with Sass. Redux was used for state management and React Router for routing.
 
-### How it was built?
+## How to install it?
 
-We start from a classic Create-React-App, which is supported by Firebase to handle authentication and a database, is connected to Discogs to get the information and uses Redux to manage the global status (and request statuses).
+First you must have a compatible version of node: v14.x
+And be able to run node based programs in the classic way, if you are using an Apple Silicon you should run the terminal and the Node installation in Rosetta.
 
-In addition, it uses Sass to handle stylesheets, Git for version management and Github along with Netlify to store and publish the application.
+Then copy and install this repository with ```npm i```
 
-### Do you have any questions?
+You must generate your credentials keys to the Firebase and Discogs APIs to be able to attach them to an .env.
 
-Send me a DM on [Twitter](https://twitter.com/mgluisfernando) and I can clarify it for you personally, feedback or recommendations are welcome there as well, or as PR's to this repository.
+
+## All that makes you a bit lazy?
+
+You can test live the application [here](https://tone-desk.vercel.app/).
