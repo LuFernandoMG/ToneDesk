@@ -9,8 +9,6 @@ One of my biggest hobbies is music. In this project, you have a fully responsive
 You can search for songs, artists, albums, EPs, and much more, plus you have information at hand about each of them.
 One of my biggest hobbies is music, in this project you have a fully responsive web application for use on any device that allows you to create an account and archive in your collections and favorites all those items that you like.
 
-You can search for songs, artists, albums, EPs and much more, plus you have information at hand about each of them.
-
 ## How does it work?
 
 We are connecting the application to a database managed by Firebase to save your user and all the information you want to add. Likewise, the Frontend is completely developed in React with Sass. Redux was used for state management and React Router for routing.
